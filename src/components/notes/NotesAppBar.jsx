@@ -5,10 +5,10 @@ export const NotesAppBar = () => {
       <div className="notes__appbar">
          <span>28 Agosto 2020</span>
          <div>
-            <button className="btn">
+            <button className="btn nav-btn">
                Picture
             </button>
-            <button className="btn">
+            <button className="btn nav-btn">
                Save
             </button>
          </div>

@@ -5,15 +5,26 @@
    cursor: pointer;
    font-size: 12px;
    // padding: 7px 10px 7px 10px;
-   transition: color .3s ease;
+   // transition: color .3s ease;
    &:focus {
       outline: none;
    }
+}
 
+//Button notes navbar
+.nav-btn {
+   padding: .5rem;
+   border-radius: 12px;
+   margin-left: 5px;
+   background-color: white;
+   color: black;
+   transition: .2s ease;
    &:hover {
-      color: darken($color: white, $amount: 10);
+      background-color: cadetblue;
+      color: white;
    }
 }
+//end
 
 .btn-primary {
    background-color: $primary;
