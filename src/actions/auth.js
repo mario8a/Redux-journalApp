@@ -1,22 +1,33 @@
+import Swal from 'sweetalert2'
+
 import {firebase, googleAuthProvider} from '../firebase/firebase-config';
 import { types } from "../types/types";
+import { finishLoading, startLoading } from './ui';
 
 //creando accion asincrona
 //Iniciar sesion con email y password
+//En esta funcion deben ser despachadas las acctiones de loading
 export const startLoginEmailPassword = (email,password) => {
    //como es una tarea asincrona, se necesita retornar un callback
    return (dispatch) => {
+      //Disparar el startLoading aqui
+      dispatch(startLoading());
       //disparando el dispacth de las acciones
       //Hacer autenticacion con firebase
       firebase.auth().signInWithEmailAndPassword(email, password)
          .then(({user}) => {
             // console.log(user);
+            //Disparar la otra o dispatch acction de loading
             dispatch(
                login(user.uid, user.displayName)
             );
+
+            dispatch(finishLoading());
          })
          .catch(e => {
             console.log(e)
+            dispatch(finishLoading());
+            Swal.fire('Error', e.message, 'error');
          });
 
    }
@@ -36,6 +47,7 @@ export const startRegisterWithEmailPasswordName = (email,password,name) => {
          })
          .catch(e => {
             console.log(e)
+            Swal.fire('Error', e.message, 'error');
          });
    }
 }
@@ -59,4 +71,16 @@ export const login = (uid, displayName) => ({
       uid,
       displayName
    }
+})
+
+export const startLogout = () => {
+   return async(dispatch) => {
+      await firebase.auth().signOut();
+      //Disparando la accion que va borrar el uid del store
+      dispatch(logout());
+   }
+}
+
+export const logout = () => ({
+   type: types.logout
 })
