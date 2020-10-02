@@ -9,10 +9,11 @@ import {firebase} from '../firebase/firebase-config';
 //components
 import { JournalScreen } from '../components/journal/JournalScreen';
 import { AuthRouter } from './AuthRouter';
-//actions
-import { login } from '../actions/auth';
 import { PublicRoute } from './PublicRoute';
 import { PrivateRoute } from './PrivateRoute';
+//actions
+import { login } from '../actions/auth';
+import { startLoadingNotes } from '../actions/notes';
 
 export const AppRouter = () => {
 
@@ -27,11 +28,14 @@ export const AppRouter = () => {
 
    //Se usa un effect porque el estado vcambia
    useEffect(() => {
-      firebase.auth().onAuthStateChanged((user) => {
+      firebase.auth().onAuthStateChanged(async (user) => {
          //evaluar si el objeto user tiene algo
          if(user?.uid) {
             dispatch(login(user.uid, user.displayName));
             setIsLoggedIn(true)
+
+            dispatch(startLoadingNotes(user.uid));
+
          } else {
             setIsLoggedIn(false)
          }
@@ -44,7 +48,7 @@ export const AppRouter = () => {
    //Si se muestra los screen significa que ya se tiene el uid del usuario
    if(checking) {
       return (
-         <h1>Espere...</h1>
+         <h1>wait...</h1>
       )
    }
 

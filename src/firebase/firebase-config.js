@@ -13,7 +13,7 @@ const firebaseConfig = {
  };
  // Initialize Firebase
  firebase.initializeApp(firebaseConfig);
-
+ //referencia a la base de datos
  const db = firebase.firestore();
  //Auth provider (= para otras twitter..github..)
  const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
