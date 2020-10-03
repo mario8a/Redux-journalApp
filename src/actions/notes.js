@@ -41,3 +41,22 @@ export const setNotes = (notes) => ({
    type: types.notesLoad,
    payload: notes
 });
+//guardar la nota en la DB
+export const startSaveNote = (note) => {
+   return async (dispatch, getState) => {
+
+      const {uid} = getState().auth;
+      //evaluando si no hay url (imagen)
+      if(!note.url) {
+         delete note.url;
+         //Si no hay borrala
+      }
+
+      const noteToFirestore = {...note};
+      delete noteToFirestore.id;
+
+      await db.doc(`${uid}/journal/notes/${note.id}`).update(noteToFirestore);
+
+
+   }
+}
