@@ -1,6 +1,7 @@
 import { db } from "../firebase/firebase-config";
 import { types } from "../types/types";
 import { loadNotes } from "../helpers/loadNotes";
+import Swal from "sweetalert2";
 
 //getState servira para obtener el state donde se encuentra el uid del usuario
 export const startNewNote = () => {
@@ -56,7 +57,20 @@ export const startSaveNote = (note) => {
       delete noteToFirestore.id;
 
       await db.doc(`${uid}/journal/notes/${note.id}`).update(noteToFirestore);
-
-
+      
+      dispatch(refreshNote(note.id, noteToFirestore));
+      Swal.fire('Saved', note.title, 'success')
    }
 }
+
+//actualiza el store cuando se guarda la nota en la DB
+export const refreshNote = (id, note) => ({
+   type: types.notesUpdated,
+   payload: {
+      id,
+      note: {
+         id,
+         ...note
+      }
+   }
+})
