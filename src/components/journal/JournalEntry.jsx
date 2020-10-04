@@ -9,14 +9,14 @@ export const JournalEntry = ({id, date, title, body, url}) => {
 
    const noteDay = moment(date);
    //Activar nota al darle click
-   const handeEntryClick = () => {
+   const handleEntryClick = () => {
       dispatch(activeNote(id,{title, body, date, url}));
    }
 
    return (
       <div 
-         className="journal__entry pointer" 
-         onClick={handeEntryClick}>
+         className="journal__entry pointer animate__animated animate__fadeIn animate__faster" 
+         onClick={handleEntryClick}>
          {
             url && 
             <div 
@@ -27,7 +27,7 @@ export const JournalEntry = ({id, date, title, body, url}) => {
                }} 
             ></div>
          }
-
+         {/* Aqui se deberia de poner el handeEntryClick */}
          <div className="journal__entry-body">
             <p className="journal__entry-title">
                {title}

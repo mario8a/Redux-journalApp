@@ -42,6 +42,16 @@
    }
 }
 
+.btn-danger {
+   height: 5rem;
+   margin: 0 auto;
+   transition: background-color .3s ease;
+}
+
+.btn-danger i {
+   color: red;
+}
+
 .btn-block {
    width: 100%;
 }

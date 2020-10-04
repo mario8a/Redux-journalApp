@@ -54,17 +54,18 @@
    color: $dark-grey;
    display: grid;
    // grid-template-columns: 70px 1fr 50px 50px;
-   grid-template-columns: 70px 1fr 50px;
+   grid-template-columns: 70px 1fr 50px 15px;
    justify-content: center;
    justify-items: center;
    align-items: center;
    margin-bottom: 10px;
    overflow: hidden;
    min-height: 75px;
+   // max-height: 75px;
 }
 
 .journal__entry-picture {
-   min-height: 75px;
+   min-height: 100%;
    width: 100%;
 }
 
@@ -74,6 +75,9 @@
 .journal__entry-title {
    font-size: 14px;
    font-weight: bold;
+}
+.journal__delete i {
+   color: red;
 }
 .journal__entry-content {
    font-size: 10px;
