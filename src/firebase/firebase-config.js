@@ -9,7 +9,7 @@ const firebaseConfig = {
    projectId: "pwangular-28d6b",
    storageBucket: "pwangular-28d6b.appspot.com",
    messagingSenderId: "218585984194",
-   appId: "1:218585984194:web:03e7a6fc904f6277c85f5b"
+   appId: "1:218585984194:web:fcd6f2b23a95c283c85f5b"
  };
  // Initialize Firebase
  firebase.initializeApp(firebaseConfig);

@@ -17,7 +17,6 @@
 }
  
 .auth__box-container {
-   //Esta debe ser la caja con estilo nemorfistra
    background-color: white;
    box-shadow: 5px 5px $dark-grey;
    border-radius: 2px;
@@ -46,14 +45,6 @@
    border-radius: 20px;
    box-shadow: inset 8px 5px 8px #cbced1,
                inset -8px -8px 30px #ffffff;
-   ///DISEÑP DEL CURSO
-   // color: $dark-grey;
-   // border: none;
-   // outline: none;
-   // font-size: 16px;
-   // margin-bottom: 10px;
-   // height: 20px;
-   // width: 100%;
 
    transition: border-bottom .3s ease;
 

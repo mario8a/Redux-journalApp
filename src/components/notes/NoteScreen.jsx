@@ -7,7 +7,7 @@ import { NotesAppBar } from './NotesAppBar';
 //hooks
 import { useForm } from '../../hooks/useForm'
 //actions
-import { activeNote, startDeleting } from '../../actions/notes'
+import { activeNote } from '../../actions/notes'
 
 export const NoteScreen = () => {
 
@@ -18,7 +18,7 @@ export const NoteScreen = () => {
    // tambien servira para leer cada uno de los campos del form
    const [formValues, handleInputChange, reset] = useForm(note);
    // console.log(formValues);
-   const {body, title, id} = formValues;
+   const {body, title} = formValues;
    //Guardando en una referencia el id de la nota
    const activeId = useRef(note.id)
    //implementando useffect para que cambie el estado cada vez que se seleccione una noa
@@ -38,9 +38,9 @@ export const NoteScreen = () => {
    }, [formValues, dispatch]);
 
    //funcion para borrar nota
-   const handleDelete = () => {
-      dispatch(startDeleting(id));
-   }
+   // const handleDelete = () => {
+   //    dispatch(startDeleting(id));
+   // }
 
    //Se muestra la info de las notas
    return (
@@ -79,12 +79,12 @@ export const NoteScreen = () => {
 
          {/* boton para borrar nota */}
 
-         <button 
+         {/* <button 
             className="btn btn-danger"
             onClick={handleDelete}
          >
             <i class="fas fa-trash-alt fa-5x"></i>
-         </button>
+         </button> */}
       </div>
    )
 }

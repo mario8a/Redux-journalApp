@@ -1,7 +1,7 @@
 import React from 'react';
 import moment from 'moment';
 import { useDispatch } from 'react-redux';
-import { activeNote } from '../../actions/notes';
+import { activeNote, startDeleting } from '../../actions/notes';
 
 export const JournalEntry = ({id, date, title, body, url}) => {
 
@@ -11,6 +11,11 @@ export const JournalEntry = ({id, date, title, body, url}) => {
    //Activar nota al darle click
    const handleEntryClick = () => {
       dispatch(activeNote(id,{title, body, date, url}));
+   }
+
+   //funcion para borrar nota
+   const handleDelete = () => {
+      dispatch(startDeleting(id));
    }
 
    return (
@@ -41,6 +46,12 @@ export const JournalEntry = ({id, date, title, body, url}) => {
             <span>{noteDay.format('dddd')}</span>
             <h4>{noteDay.format('Do')}</h4>
          </div>
+         <button 
+            className="btn btn-danger"
+            onClick={handleDelete}
+         >
+            <i className="fas fa-trash-alt fa-2x"></i>
+         </button>
       </div>
    )
 }

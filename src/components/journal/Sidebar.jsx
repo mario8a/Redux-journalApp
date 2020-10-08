@@ -23,13 +23,12 @@ export const Sidebar = () => {
    return (
       <aside className="journal__sidebar">
          <div className="journal__sidebar-navbar">
-            <h3 className="mt-5">
-               <i className="fa fa-moon"/>
-               <span> {name} </span>
+            <h3>
+              Welcome <span> {name} </span>
             </h3>
 
             <button 
-               className="btn"
+               className="btn nav-btn"
                onClick={handleLogout}
                >
                Logout

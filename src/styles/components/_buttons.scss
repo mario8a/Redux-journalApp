@@ -3,8 +3,8 @@
    border: none;
    color: white;
    cursor: pointer;
-   font-size: 12px;
-   // padding: 7px 10px 7px 10px;
+   font-size: 14px;
+   padding: 7px 10px;
    // transition: color .3s ease;
    &:focus {
       outline: none;
@@ -14,9 +14,12 @@
 //Button notes navbar
 .nav-btn {
    padding: .5rem;
-   border-radius: 12px;
+   width: 5rem;
+   border-radius: 16px;
    margin-left: 5px;
+   margin-right: 10px;
    background-color: white;
+   font-weight: 500;
    color: black;
    transition: .2s ease;
    &:hover {
@@ -85,7 +88,7 @@
     }
     .btn-text {
       text-align: center;
-      margin: 11px 40px 0 0;
+      margin: 5px 10px 0 0;
       color: $white;
       font-size: 1.2rem;
       letter-spacing: 0.2px;
