@@ -3,15 +3,16 @@ import 'firebase/firestore';
 import 'firebase/auth';
 
 const firebaseConfig = {
-   apiKey: "AIzaSyBPPv5nsQIma6khszdDyaf5erxqwdO46YE",
-   authDomain: "pwangular-28d6b.firebaseapp.com",
-   databaseURL: "https://pwangular-28d6b.firebaseio.com",
-   projectId: "pwangular-28d6b",
-   storageBucket: "pwangular-28d6b.appspot.com",
-   messagingSenderId: "218585984194",
-   appId: "1:218585984194:web:fcd6f2b23a95c283c85f5b"
+   apiKey: process.env.REACT_APP_APIKEY,
+   authDomain: process.env.REACT_APP_AUTHDOMAIN,
+   databaseURL: process.env.REACT_APP_DATABASEURL,
+   projectId: process.env.REACT_APP_PROJECTID,
+   storageBucket: process.env.REACT_APP_STORAGEBUCKET,
+   messagingSenderId: process.env.REACT_APP_MESSAGINGSENDERID,
+   appId: process.env.REACT_APP_APPID,
  };
- // Initialize Firebase
+ 
+// Initialize Firebase
  firebase.initializeApp(firebaseConfig);
  //referencia a la base de datos
  const db = firebase.firestore();
