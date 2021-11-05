@@ -15,7 +15,7 @@ export const startLoginEmailPassword = (email,password) => {
       dispatch(startLoading());
       //disparando el dispacth de las acciones
       //Hacer autenticacion con firebase
-      firebase.auth().signInWithEmailAndPassword(email, password)
+      return firebase.auth().signInWithEmailAndPassword(email, password)
          .then(({user}) => {
             // console.log(user);
             //Disparar la otra o dispatch acction de loading

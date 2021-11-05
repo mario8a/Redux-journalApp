@@ -15,12 +15,17 @@ export const startNewNote = () => {
          body: '',
          date: new Date().getTime()
       }
-      //la referencia a db regresa una promesa, asi que decidi hacerlo con async y await
-      const doc = await db.collection(`${uid}/journal/notes`).add(newNote);
-      // console.log(doc)
-      dispatch(activeNote(doc.id, newNote));
-      //disparando accion para ver las notas cuando se ccrean
-      dispatch(addNewNote(doc.id, newNote))
+
+      try {
+         //la referencia a db regresa una promesa, asi que decidi hacerlo con async y await
+         const doc = await db.collection(`${uid}/journal/notes`).add(newNote);
+         // console.log(doc)
+         dispatch(activeNote(doc.id, newNote));
+         //disparando accion para ver las notas cuando se ccrean
+         dispatch(addNewNote(doc.id, newNote))
+      } catch (error) {
+         console.log(error)
+      }
    }
 }
 
